@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emoji Leaderboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --bg:           #0d1117;
+      --card:         #161b22;
+      --border:       #30363d;
+      --text:         #e6edf3;
+      --muted:        #8b949e;
+      --accent:       #7c3aed;
+      --accent-light: #a78bfa;
+      --gold:         #f59e0b;
+      --green:        #22c55e;
+      --red:          #ef4444;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    /* ── Header ── */
+    header {
+      padding: 20px 32px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    header h1 { font-size: 1.25rem; font-weight: 700; }
+    .updated { font-size: 0.78rem; color: var(--muted); white-space: nowrap; }
+
+    /* ── Layout ── */
+    main {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 28px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 24px;
+    }
+    .card-title {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 18px;
+    }
+
+    /* ── Hero grid ── */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    /* ── Progress ring ── */
+    .ring-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .ring-outer {
+      position: relative;
+      width: 190px;
+      height: 190px;
+      margin: 0 auto 20px;
+      flex-shrink: 0;
+    }
+    .ring-outer svg { width: 100%; height: 100%; }
+    .ring-center {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+    .ring-pct {
+      font-size: 2.6rem;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--accent-light);
+    }
+    .ring-sublabel { font-size: 0.72rem; color: var(--muted); margin-top: 3px; }
+
+    .hero-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+      margin-bottom: 4px;
+      display: none; /* shown only when src is available */
+    }
+
+    .hero-name {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    .hero-stat { text-align: center; flex: 1; }
+    .hero-stat-value { font-size: 1.5rem; font-weight: 700; }
+    .hero-stat-label { font-size: 0.72rem; color: var(--muted); }
+
+    /* Goal progress bar */
+    .goal-section { width: 100%; }
+    .goal-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 7px;
+    }
+    .goal-track {
+      height: 8px;
+      background: var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .goal-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      transition: width 1s ease;
+      width: 0%;
+    }
+    .goal-msg { font-size: 0.78rem; color: var(--muted); margin-top: 8px; text-align: center; }
+
+    /* ── Competitors card ── */
+    .competitor-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 14px;
+      background: var(--bg);
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    .competitor-item:last-child { margin-bottom: 0; }
+    .comp-rank { font-size: 1.3rem; font-weight: 800; color: var(--muted); min-width: 30px; }
+    .comp-info { flex: 1; min-width: 0; }
+    .comp-name { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .comp-sub  { font-size: 0.75rem; color: var(--muted); }
+    .comp-right { text-align: right; flex-shrink: 0; }
+    .comp-count { font-weight: 700; font-size: 1.1rem; }
+    .comp-gap   { font-size: 0.75rem; margin-top: 1px; }
+
+    /* ── Chart ── */
+    .chart-wrap { position: relative; height: 240px; }
+
+    /* ── Tables ── */
+    table { width: 100%; border-collapse: collapse; }
+    th {
+      text-align: left;
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 6px 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    td { padding: 11px 10px; border-bottom: 1px solid var(--border); font-size: 0.92rem; }
+    tr:last-child td { border-bottom: none; }
+    .td-rank { font-weight: 700; color: var(--muted); width: 38px; }
+    .td-name { font-weight: 500; }
+    .td-count { text-align: right; font-weight: 700; white-space: nowrap; }
+    .td-bar { width: 38%; padding-right: 16px; }
+    .mini-bar {
+      height: 6px;
+      background: var(--accent);
+      border-radius: 3px;
+      min-width: 3px;
+      transition: width 0.6s ease;
+    }
+    .r1 { color: var(--gold); }
+    .r2 { color: #c0c0c0; }
+    .r3 { color: #cd7f32; }
+    .highlight td { background: rgba(124, 58, 237, 0.08); }
+
+    /* ── Recent emoji grid ── */
+    .emoji-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
+      gap: 10px;
+    }
+    .emoji-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      padding: 10px 6px;
+      background: var(--bg);
+      border-radius: 8px;
+      text-align: center;
+    }
+    .emoji-item img {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+    .emoji-item-name {
+      font-size: 0.62rem;
+      color: var(--muted);
+      word-break: break-all;
+      line-height: 1.3;
+    }
+    .emoji-item-date {
+      font-size: 0.6rem;
+      color: var(--border);
+    }
+
+    /* ── Empty / loading / error ── */
+    .status-msg {
+      text-align: center;
+      padding: 64px 32px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .error-card {
+      background: rgba(239, 68, 68, 0.08);
+      border-color: var(--red);
+    }
+    .error-card .card-title { color: var(--red); }
+    .error-card p { margin-top: 8px; font-size: 0.9rem; line-height: 1.7; }
+    code {
+      background: var(--bg);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.85em;
+      font-family: 'SF Mono', 'Fira Code', Consolas, monospace;
+    }
+
+    @media (max-width: 680px) {
+      header { padding: 14px 16px; }
+      main   { padding: 16px; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-stats { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🏆 Custom Emoji Leaderboard</h1>
+  <span class="updated" id="updated-at"></span>
+</header>
+
+<main>
+  <div id="loading" class="status-msg">Loading emoji data…</div>
+
+  <div id="app" style="display:none; display:flex; flex-direction:column; gap:20px;">
+
+    <!-- Hero: ring + competitors -->
+    <div class="hero-grid">
+
+      <!-- Left: Scott's progress ring -->
+      <div class="card ring-card">
+        <p class="card-title" id="hero-title">Loading…</p>
+        <div class="ring-outer">
+          <svg viewBox="0 0 180 180">
+            <!-- Background track -->
+            <circle cx="90" cy="90" r="76"
+              fill="none" stroke="#30363d" stroke-width="16"/>
+            <!-- Progress fill (rotated so 0% starts at 12 o'clock) -->
+            <circle id="ring-fill" cx="90" cy="90" r="76"
+              fill="none" stroke="#7c3aed" stroke-width="16"
+              stroke-linecap="butt"
+              transform="rotate(-90 90 90)"/>
+            <!-- 50% goal tick at 6 o'clock (bottom of the ring) -->
+            <line x1="90" y1="168" x2="90" y2="180"
+              stroke="#f59e0b" stroke-width="3" stroke-linecap="round"/>
+            <text x="98" y="179" fill="#f59e0b"
+              font-size="9" font-family="sans-serif" font-weight="600">50%</text>
+          </svg>
+          <div class="ring-center">
+            <span class="ring-pct" id="ring-pct">--%</span>
+            <span class="ring-sublabel">of all emoji</span>
+          </div>
+        </div>
+
+        <img class="hero-avatar" id="hero-avatar" src="" alt="Profile picture">
+        <p class="hero-name" id="hero-name"></p>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-value" id="stat-count">--</div>
+            <div class="hero-stat-label">emoji created</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value" id="stat-rank">--</div>
+            <div class="hero-stat-label">all-time rank</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value" id="stat-total">--</div>
+            <div class="hero-stat-label">total emoji</div>
+          </div>
+        </div>
+
+        <div class="goal-section">
+          <div class="goal-header">
+            <span>Progress to 50% goal</span>
+            <span id="goal-label">-- / 50%</span>
+          </div>
+          <div class="goal-track">
+            <div class="goal-fill" id="goal-fill"></div>
+          </div>
+          <p class="goal-msg" id="goal-msg"></p>
+        </div>
+      </div>
+
+      <!-- Right: Closest competitors -->
+      <div class="card">
+        <p class="card-title">Closest Competitors</p>
+        <div id="competitor-list"></div>
+      </div>
+    </div>
+
+    <!-- Day-of-week chart -->
+    <div class="card">
+      <p class="card-title" id="days-title">Most Active Upload Days</p>
+      <div class="chart-wrap">
+        <canvas id="days-chart"></canvas>
+      </div>
+    </div>
+
+    <!-- Recent emoji -->
+    <div class="card">
+      <p class="card-title" id="recent-title">Most Recently Created Emoji</p>
+      <div class="emoji-grid" id="recent-emoji-grid"></div>
+    </div>
+
+    <!-- Scott's busiest individual days -->
+    <div class="card">
+      <p class="card-title" id="busiest-title">Busiest Individual Days</p>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Date</th>
+            <th style="text-align:right">Emoji created</th>
+            <th class="td-bar"></th>
+          </tr>
+        </thead>
+        <tbody id="busiest-body"></tbody>
+      </table>
+    </div>
+
+    <!-- Weekly leaderboard -->
+    <div class="card">
+      <p class="card-title">
+        This Week's Leaderboard
+        <span id="week-range" style="text-transform:none; font-weight:400; color:var(--muted)"></span>
+      </p>
+      <div id="weekly-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th><th>Name</th>
+              <th style="text-align:right">Added this week</th>
+              <th class="td-bar"></th>
+            </tr>
+          </thead>
+          <tbody id="weekly-body"></tbody>
+        </table>
+        <p id="weekly-empty" style="display:none; color:var(--muted); padding:16px 0; font-size:0.9rem">
+          No emoji added this week yet — check back later!
+        </p>
+      </div>
+    </div>
+
+    <!-- All-time leaderboard -->
+    <div class="card">
+      <p class="card-title">All-Time Leaderboard</p>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th><th>Name</th>
+            <th style="text-align:right">Total emoji</th>
+            <th class="td-bar"></th>
+          </tr>
+        </thead>
+        <tbody id="alltime-body"></tbody>
+      </table>
+    </div>
+
+  </div><!-- #app -->
+</main>
+
+<script>
+// ─────────────────────────────────────────────────────────────────────────────
+// CONFIG — edit these to match your setup
+// ─────────────────────────────────────────────────────────────────────────────
+const CONFIG = {
+  targetName:       "Scott Bird",   // Slack display name (partial match OK)
+  targetUserId:     null,           // Optional: Slack user ID e.g. "U04ABCDEF"
+  weekStartsMonday: true,           // true = Mon–Sun, false = Sun–Sat
+  dataFile:         "data/emoji.json",
+};
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Utilities
+// ─────────────────────────────────────────────────────────────────────────────
+const $ = id => document.getElementById(id);
+
+function esc(str) {
+  return String(str)
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+function ordinal(n) {
+  const s = ["th","st","nd","rd"];
+  const v = n % 100;
+  return n + (s[(v - 20) % 10] || s[v] || s[0]);
+}
+
+function fmtDate(d) {
+  return d.toLocaleDateString("en-GB", { day: "numeric", month: "short" });
+}
+
+/** Returns the Date of the start of the current week at midnight. */
+function weekStart() {
+  const now = new Date();
+  const day = now.getDay(); // 0 = Sun
+  const offsetDays = CONFIG.weekStartsMonday
+    ? (day === 0 ? -6 : 1 - day)  // back to most recent Monday
+    : -day;                        // back to most recent Sunday
+  const d = new Date(now);
+  d.setDate(now.getDate() + offsetDays);
+  d.setHours(0, 0, 0, 0);
+  return d;
+}
+
+/** Find the target person in the leaderboard. */
+function findTarget(leaderboard) {
+  if (CONFIG.targetUserId) {
+    return leaderboard.find(p => p.user_id === CONFIG.targetUserId);
+  }
+  const q = CONFIG.targetName.toLowerCase();
+  return leaderboard.find(p => p.display_name.toLowerCase().includes(q));
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Render: hero card
+// ─────────────────────────────────────────────────────────────────────────────
+function renderHero(target, total) {
+  const pct      = target.count / total * 100;
+  const pctText  = pct.toFixed(1) + "%";
+  const goalPct  = Math.min(100, pct / 50 * 100);
+
+  $("hero-title").textContent = `${target.display_name}'s Emoji Empire`;
+  $("hero-name").textContent  = target.display_name;
+  if (target.avatar) {
+    const av = $("hero-avatar");
+    av.src = target.avatar;
+    av.style.display = "block";
+  }
+  $("ring-pct").textContent   = pctText;
+  $("stat-count").textContent = target.count.toLocaleString();
+  $("stat-rank").textContent  = ordinal(target.rank);
+  $("stat-total").textContent = total.toLocaleString();
+  $("goal-label").textContent = `${pctText} / 50%`;
+
+  // Animate the progress ring
+  const r            = 76;
+  const circumference = 2 * Math.PI * r; // ≈ 477.5
+  const fill         = $("ring-fill");
+  fill.style.strokeDasharray  = circumference;
+  fill.style.strokeDashoffset = circumference; // start empty
+
+  requestAnimationFrame(() => {
+    setTimeout(() => {
+      fill.style.transition    = "stroke-dashoffset 1.2s cubic-bezier(.4,0,.2,1)";
+      fill.style.strokeDashoffset = circumference * (1 - pct / 100);
+      if (pct >= 50) {
+        fill.style.stroke = "#22c55e";
+        $("ring-pct").style.color = "#22c55e";
+      }
+    }, 80);
+  });
+
+  // Goal bar
+  setTimeout(() => { $("goal-fill").style.width = goalPct + "%"; }, 80);
+  if (pct >= 50) {
+    $("goal-fill").style.background = "#22c55e";
+    $("goal-msg").textContent = "🎉 Goal achieved! Scott has crossed 50%!";
+  } else {
+    const needed = Math.ceil(total * 0.5 - target.count);
+    $("goal-msg").textContent = `${needed.toLocaleString()} more emoji needed to reach 50%`;
+  }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Render: closest competitors
+// ─────────────────────────────────────────────────────────────────────────────
+function renderCompetitors(target, leaderboard) {
+  const others = leaderboard.filter(p => p.user_id !== target.user_id);
+
+  // Sort by closeness to target's count; show closest 3
+  const closest = [...others]
+    .sort((a, b) => Math.abs(a.count - target.count) - Math.abs(b.count - target.count))
+    .slice(0, 3);
+
+  $("competitor-list").innerHTML = closest.map(p => {
+    const diff      = p.count - target.count;
+    const diffLabel = diff > 0
+      ? `<span style="color:var(--red)">▲ ${diff.toLocaleString()} ahead</span>`
+      : diff < 0
+      ? `<span style="color:var(--green)">▼ ${Math.abs(diff).toLocaleString()} behind</span>`
+      : `<span style="color:var(--gold)">Tied!</span>`;
+
+    return `
+      <div class="competitor-item">
+        <span class="comp-rank">#${p.rank}</span>
+        <div class="comp-info">
+          <div class="comp-name">${esc(p.display_name)}</div>
+          <div class="comp-sub">${p.count.toLocaleString()} emoji total</div>
+        </div>
+        <div class="comp-right">
+          <div class="comp-count">${p.count.toLocaleString()}</div>
+          <div class="comp-gap">${diffLabel}</div>
+        </div>
+      </div>`;
+  }).join("");
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Render: day-of-week chart
+// ─────────────────────────────────────────────────────────────────────────────
+function renderDaysChart(target) {
+  const LABELS = CONFIG.weekStartsMonday
+    ? ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+    : ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  const counts = new Array(7).fill(0);
+  let datedCount = 0;
+
+  for (const e of target.emoji) {
+    if (!e.created) continue;
+    datedCount++;
+    let day = new Date(e.created * 1000).getDay(); // 0 = Sun
+    if (CONFIG.weekStartsMonday) day = (day + 6) % 7; // remap: 0 = Mon
+    counts[day]++;
+  }
+
+  const maxIdx = counts.indexOf(Math.max(...counts));
+  const undatedNote = datedCount < target.count
+    ? ` (${target.count - datedCount} emoji have no timestamp)`
+    : "";
+  $("days-title").textContent =
+    `${target.display_name}'s Most Active Upload Days — ${LABELS[maxIdx]}s are busiest${undatedNote}`;
+
+  const maxVal = Math.max(...counts, 1);
+  new Chart($("days-chart").getContext("2d"), {
+    type: "bar",
+    data: {
+      labels: LABELS,
+      datasets: [{
+        label: "Emoji uploaded",
+        data: counts,
+        backgroundColor: counts.map((v, i) =>
+          i === maxIdx ? "#a78bfa" : "#4c3f91"),
+        borderRadius: 6,
+        borderSkipped: false,
+      }],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: { label: ctx => ` ${ctx.raw} emoji` },
+        },
+      },
+      scales: {
+        x: { grid: { color: "#30363d" }, ticks: { color: "#8b949e" } },
+        y: { grid: { color: "#30363d" }, ticks: { color: "#8b949e", precision: 0 } },
+      },
+    },
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Render: recent emoji grid
+// ─────────────────────────────────────────────────────────────────────────────
+function renderRecentEmoji(target) {
+  const recent = [...target.emoji]
+    .filter(e => e.url)
+    .sort((a, b) => (b.created || 0) - (a.created || 0))
+    .slice(0, 24);
+
+  $("recent-title").textContent =
+    `${target.display_name}'s Most Recently Created Emoji`;
+
+  if (recent.length === 0) {
+    $("recent-emoji-grid").innerHTML =
+      `<p style="color:var(--muted);font-size:0.9rem">No image URLs in data — re-run fetch_emoji.py to pick them up.</p>`;
+    return;
+  }
+
+  $("recent-emoji-grid").innerHTML = recent.map(e => {
+    const dateStr = e.created
+      ? new Date(e.created * 1000).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "2-digit" })
+      : "";
+    return `
+      <div class="emoji-item">
+        <img src="${esc(e.url)}" alt=":${esc(e.name)}:" title=":${esc(e.name)}:"
+             loading="lazy" onerror="this.replaceWith(document.createTextNode('🖼️'))">
+        <span class="emoji-item-name">:${esc(e.name)}:</span>
+        ${dateStr ? `<span class="emoji-item-date">${dateStr}</span>` : ""}
+      </div>`;
+  }).join("");
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Render: Scott's busiest individual days
+// ─────────────────────────────────────────────────────────────────────────────
+function renderBusiestDays(target) {
+  const DAY_NAMES = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  const MONTH_NAMES = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+  // Group emoji by local calendar date (YYYY-MM-DD)
+  const byDate = {};
+  for (const e of target.emoji) {
+    if (!e.created) continue;
+    const d   = new Date(e.created * 1000);
+    const key = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+    if (!byDate[key]) byDate[key] = { date: d, count: 0 };
+    byDate[key].count++;
+  }
+
+  // Sort by count descending, take top 10
+  const ranked = Object.values(byDate)
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 10);
+
+  if (ranked.length === 0) {
+    $("busiest-body").innerHTML =
+      `<tr><td colspan="4" style="color:var(--muted);padding:16px 0">No dated emoji found.</td></tr>`;
+    return;
+  }
+
+  $("busiest-title").textContent =
+    `${target.display_name}'s Busiest Individual Days`;
+
+  const maxCount = ranked[0].count;
+  $("busiest-body").innerHTML = ranked.map((item, i) => {
+    const d          = item.date;
+    const dayName    = DAY_NAMES[d.getDay()];
+    const dateNum    = d.getDate();
+    const monthName  = MONTH_NAMES[d.getMonth()];
+    const year       = d.getFullYear();
+    const dateLabel  = `${dayName} ${ordinal(dateNum)} ${monthName} ${year}`;
+    const barWidth   = (item.count / maxCount * 100).toFixed(1);
+    const rankClass  = i < 3 ? `r${i + 1}` : "";
+
+    return `
+      <tr>
+        <td class="td-rank ${rankClass}">${i + 1}</td>
+        <td class="td-name">${dateLabel}</td>
+        <td class="td-count">${item.count}</td>
+        <td class="td-bar">
+          <div class="mini-bar" style="width:${barWidth}%; background:#a78bfa"></div>
+        </td>
+      </tr>`;
+  }).join("");
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Render: weekly leaderboard
+// ─────────────────────────────────────────────────────────────────────────────
+function renderWeeklyLeaderboard(leaderboard, target) {
+  const start    = weekStart();
+  const startTs  = start.getTime() / 1000; // convert to Unix seconds
+  $("week-range").textContent = `· ${fmtDate(start)} – ${fmtDate(new Date())}`;
+
+  const weekly = leaderboard
+    .map(p => ({ ...p, weekCount: p.emoji.filter(e => e.created >= startTs).length }))
+    .filter(p => p.weekCount > 0)
+    .sort((a, b) => b.weekCount - a.weekCount);
+
+  if (weekly.length === 0) {
+    $("weekly-body").closest("table").style.display = "none";
+    $("weekly-empty").style.display = "block";
+    return;
+  }
+
+  const maxW = weekly[0].weekCount;
+  $("weekly-body").innerHTML = weekly.map((p, i) => {
+    const isTarget  = p.user_id === target.user_id;
+    const barWidth  = (p.weekCount / maxW * 100).toFixed(1);
+    const rankClass = i < 3 ? `r${i + 1}` : "";
+    return `
+      <tr class="${isTarget ? "highlight" : ""}">
+        <td class="td-rank ${rankClass}">${i + 1}</td>
+        <td class="td-name">${esc(p.display_name)}${isTarget ? " 👑" : ""}</td>
+        <td class="td-count">${p.weekCount}</td>
+        <td class="td-bar">
+          <div class="mini-bar" style="width:${barWidth}%; background:${isTarget ? "#a78bfa" : "var(--accent)"}"></div>
+        </td>
+      </tr>`;
+  }).join("");
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Render: all-time leaderboard
+// ─────────────────────────────────────────────────────────────────────────────
+function renderAllTimeLeaderboard(leaderboard, target) {
+  const maxC = leaderboard[0]?.count || 1;
+  $("alltime-body").innerHTML = leaderboard.map((p, i) => {
+    const isTarget  = p.user_id === target.user_id;
+    const barWidth  = (p.count / maxC * 100).toFixed(1);
+    const rankClass = i < 3 ? `r${i + 1}` : "";
+    return `
+      <tr class="${isTarget ? "highlight" : ""}">
+        <td class="td-rank ${rankClass}">${i + 1}</td>
+        <td class="td-name">${esc(p.display_name)}${isTarget ? " 👑" : ""}</td>
+        <td class="td-count">${p.count.toLocaleString()}</td>
+        <td class="td-bar">
+          <div class="mini-bar" style="width:${barWidth}%; background:${isTarget ? "#a78bfa" : "var(--accent)"}"></div>
+        </td>
+      </tr>`;
+  }).join("");
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Boot
+// ─────────────────────────────────────────────────────────────────────────────
+async function main() {
+  try {
+    const resp = await fetch(CONFIG.dataFile);
+    if (!resp.ok) throw new Error(`HTTP ${resp.status} fetching ${CONFIG.dataFile}`);
+    const data = await resp.json();
+
+    const target = findTarget(data.leaderboard);
+    if (!target) {
+      throw new Error(
+        `Could not find "${CONFIG.targetName}" in the data. ` +
+        `Check CONFIG.targetName matches their Slack display name exactly, ` +
+        `or set CONFIG.targetUserId to their Slack user ID.`
+      );
+    }
+
+    $("updated-at").textContent =
+      `Last updated: ${new Date(data.fetched_at).toLocaleString()}`;
+
+    $("loading").style.display = "none";
+    $("app").style.display     = "flex";
+
+    renderHero(target, data.total);
+    renderCompetitors(target, data.leaderboard);
+    renderDaysChart(target);
+    renderRecentEmoji(target);
+    renderBusiestDays(target);
+    renderWeeklyLeaderboard(data.leaderboard, target);
+    renderAllTimeLeaderboard(data.leaderboard, target);
+
+  } catch (err) {
+    $("loading").innerHTML = `
+      <div class="card error-card" style="text-align:left;max-width:600px;margin:0 auto">
+        <p class="card-title">Failed to load data</p>
+        <p><strong>${esc(err.message)}</strong></p>
+        <p style="margin-top:12px">To fix this:</p>
+        <ol style="margin:8px 0 0 20px; font-size:0.9rem; line-height:2">
+          <li>Run <code>SLACK_TOKEN=xoxp-... python fetch_emoji.py</code></li>
+          <li>Serve locally with <code>python -m http.server 8080</code></li>
+          <li>Open <code>http://localhost:8080</code> in your browser</li>
+        </ol>
+        <p style="margin-top:12px;font-size:0.85rem;color:var(--muted)">
+          (Opening index.html directly via file:// will fail due to browser CORS restrictions.)
+        </p>
+      </div>`;
+  }
+}
+
+main();
+</script>
+</body>
+</html>

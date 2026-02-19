@@ -1,0 +1,38 @@
+name: Refresh Emoji Data
+
+on:
+  schedule:
+    # Every Monday at 9:00 AM UTC (adjust to taste)
+    - cron: "0 9 * * 1"
+  workflow_dispatch: # Also allows manual trigger from GitHub Actions tab
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # needed to commit data/emoji.json back to the repo
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Fetch emoji data
+        run: python fetch_emoji.py
+        env:
+          SLACK_TOKEN:    ${{ secrets.SLACK_TOKEN }}
+          SLACK_D_COOKIE: ${{ secrets.SLACK_D_COOKIE }}
+          SLACK_XC_TOKEN: ${{ secrets.SLACK_XC_TOKEN }}
+
+      - name: Commit updated data
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: refresh emoji data [skip ci]"
+          file_pattern: "data/emoji.json"
