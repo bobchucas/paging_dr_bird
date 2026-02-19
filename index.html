@@ -512,8 +512,8 @@ function renderHero(target, total) {
     $("goal-fill").style.background = "#22c55e";
     $("goal-msg").textContent = "🎉 Goal achieved! Scott has crossed 50%!";
   } else {
-    const needed = Math.ceil(total * 0.5 - target.count);
-    $("goal-msg").textContent = `${needed.toLocaleString()} more emoji needed to reach 50%`;
+    const needed = Math.ceil(total - 2 * target.count);
+    $("goal-msg").textContent = `${needed.toLocaleString()} more emoji needed to reach 50% (accounting for total growing)`;
   }
 }
 
