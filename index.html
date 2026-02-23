@@ -321,6 +321,10 @@
             <div class="hero-stat-value" id="stat-total">--</div>
             <div class="hero-stat-label">total emoji</div>
           </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value" id="stat-rate">--</div>
+            <div class="hero-stat-label">per day avg</div>
+          </div>
         </div>
 
         <div class="goal-section">
@@ -347,6 +351,14 @@
       <p class="card-title" id="days-title">Most Active Upload Days</p>
       <div class="chart-wrap">
         <canvas id="days-chart"></canvas>
+      </div>
+    </div>
+
+    <!-- Month-of-year chart -->
+    <div class="card">
+      <p class="card-title" id="months-title">Most Active Upload Months</p>
+      <div class="chart-wrap">
+        <canvas id="months-chart"></canvas>
       </div>
     </div>
 
@@ -422,6 +434,7 @@ const CONFIG = {
   targetUserId:     null,           // Optional: Slack user ID e.g. "U04ABCDEF"
   weekStartsMonday: true,           // true = Mon–Sun, false = Sun–Sat
   dataFile:         "data/emoji.json",
+  startDate:        new Date(2024, 5, 3), // 3rd June 2024 — when Scott started
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -487,6 +500,10 @@ function renderHero(target, total) {
   $("stat-rank").textContent  = ordinal(target.rank);
   $("stat-total").textContent = total.toLocaleString();
   $("goal-label").textContent = `${pctText} / 50%`;
+
+  const daysElapsed = (Date.now() - CONFIG.startDate.getTime()) / (1000 * 60 * 60 * 24);
+  const rate = (target.count / daysElapsed).toFixed(2);
+  $("stat-rate").textContent = rate;
 
   // Animate the progress ring
   const r            = 76;
@@ -598,6 +615,81 @@ function renderDaysChart(target) {
         legend: { display: false },
         tooltip: {
           callbacks: { label: ctx => ` ${ctx.raw} emoji` },
+        },
+      },
+      scales: {
+        x: { grid: { color: "#30363d" }, ticks: { color: "#8b949e" } },
+        y: { grid: { color: "#30363d" }, ticks: { color: "#8b949e", precision: 0 } },
+      },
+    },
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Render: month-of-year chart (average per occurrence of each month)
+// ─────────────────────────────────────────────────────────────────────────────
+function renderMonthsChart(target) {
+  const MONTH_LABELS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+  // Count emoji per calendar month-year bucket, then average across years
+  const byMonthYear = {}; // "2024-05" → count
+  for (const e of target.emoji) {
+    if (!e.created) continue;
+    const d   = new Date(e.created * 1000);
+    const key = `${d.getFullYear()}-${d.getMonth()}`; // month is 0-indexed
+    byMonthYear[key] = (byMonthYear[key] || 0) + 1;
+  }
+
+  // Sum totals and occurrence counts per month index (0–11)
+  const totals      = new Array(12).fill(0);
+  const occurrences = new Array(12).fill(0);
+  for (const [key, count] of Object.entries(byMonthYear)) {
+    const monthIdx = parseInt(key.split("-")[1]);
+    totals[monthIdx]      += count;
+    occurrences[monthIdx] += 1;
+  }
+
+  // Average (0 if no data for that month yet)
+  const averages = totals.map((total, i) =>
+    occurrences[i] > 0 ? parseFloat((total / occurrences[i]).toFixed(1)) : 0
+  );
+
+  const maxIdx = averages.indexOf(Math.max(...averages));
+  const hasMultipleYears = Object.values(occurrences).some(o => o > 1);
+  const subtitle = hasMultipleYears
+    ? ` — ${MONTH_LABELS[maxIdx]} is busiest on average`
+    : ` — ${MONTH_LABELS[maxIdx]} is busiest (only 1 year of data so far)`;
+  $("months-title").textContent =
+    `${target.display_name}'s Most Active Upload Months${subtitle}`;
+
+  new Chart($("months-chart").getContext("2d"), {
+    type: "bar",
+    data: {
+      labels: MONTH_LABELS,
+      datasets: [{
+        label: "Avg emoji per month",
+        data: averages,
+        backgroundColor: averages.map((_, i) =>
+          i === maxIdx ? "#a78bfa" : "#4c3f91"),
+        borderRadius: 6,
+        borderSkipped: false,
+      }],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => {
+              const monthIdx = ctx.dataIndex;
+              const occ = occurrences[monthIdx];
+              return occ > 1
+                ? ` ${ctx.raw} avg (across ${occ} years)`
+                : ` ${totals[monthIdx]} emoji (1 year only)`;
+            },
+          },
         },
       },
       scales: {
@@ -778,6 +870,7 @@ async function main() {
     renderHero(target, data.total);
     renderCompetitors(target, data.leaderboard);
     renderDaysChart(target);
+    renderMonthsChart(target);
     renderRecentEmoji(target);
     renderBusiestDays(target);
     renderWeeklyLeaderboard(data.leaderboard, target);
