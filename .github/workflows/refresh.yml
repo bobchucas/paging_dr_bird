@@ -3,7 +3,7 @@ name: Refresh Emoji Data
 on:
   schedule:
     # Every Monday at 9:00 AM UTC (adjust to taste)
-    - cron: "0 9 * * 1"
+    - cron: "0 9 * * 5"
   workflow_dispatch: # Also allows manual trigger from GitHub Actions tab
 
 jobs:
