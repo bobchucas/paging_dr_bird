@@ -1,6 +1,6 @@
 {
-  "total": 1514,
-  "total_with_aliases": 1515,
+  "total": 1520,
+  "total_with_aliases": 1521,
   "total_aliases": 1,
   "total_creators": 103,
   "leaderboard": [
@@ -399,6 +399,11 @@
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/bobby_williams/646f3e11be431bb9.png"
         },
         {
+          "name": "bold",
+          "created": 1773249615,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/bold/fb4432ae81423ed1.png"
+        },
+        {
           "name": "bologna_fc_1909",
           "created": 1743847846,
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/bologna_fc_1909/22866cc12bf15fa5.png"
@@ -582,6 +587,11 @@
           "name": "celtic_fc",
           "created": 1743848478,
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/celtic_fc/c8f0ce353834f3c0.png"
+        },
+        {
+          "name": "channel",
+          "created": 1773249624,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/channel/09f764726c2a55e1.png"
         },
         {
           "name": "chatham_town_fc",
@@ -1634,6 +1644,11 @@
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/hyacinth_bucket/d23e1e30e674b7aa.png"
         },
         {
+          "name": "hype",
+          "created": 1773249636,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/hype/161d2a512d6118b3.gif"
+        },
+        {
           "name": "hype-train",
           "created": 1770654976,
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/hype-train/659ce0bdb1bf48bb.gif"
@@ -2292,6 +2307,11 @@
           "name": "not_a_bug",
           "created": 1767954313,
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/not_a_bug/a45dfd62ad020204.png"
+        },
+        {
+          "name": "not_funny",
+          "created": 1772796052,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/not_funny/724c5270c3b10212.gif"
         },
         {
           "name": "not_sure_if",
@@ -3494,6 +3514,11 @@
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/you_legend/960aed1bc4fc5326.png"
         },
         {
+          "name": "you_would'nt_like_me_when_i'm_angry_ali",
+          "created": 1773156640,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/you_would%2527nt_like_me_when_i%2527m_angry_ali/ffe704e4642bca40.png"
+        },
+        {
           "name": "zlatan_laughing",
           "created": 1744624560,
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/zlatan_laughing/e086be80b2ca4689.png"
@@ -3505,7 +3530,7 @@
         }
       ],
       "rank": 1,
-      "count": 699,
+      "count": 704,
       "avatar": "https://avatars.slack-edge.com/2024-06-05/7226515885298_7789eb25631c47a09e3b_192.jpg"
     },
     {
@@ -5813,6 +5838,11 @@
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/bristolcity/417c90dfb391743a.png"
         },
         {
+          "name": "busy-little-bee",
+          "created": 1772806295,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/busy-little-bee/6eb11ebc2a69f5eb.png"
+        },
+        {
           "name": "chelsea-alex",
           "created": 1769099877,
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/chelsea-alex/541eef6df44d324a.png"
@@ -5874,7 +5904,7 @@
         }
       ],
       "rank": 12,
-      "count": 16,
+      "count": 17,
       "avatar": "https://avatars.slack-edge.com/2023-07-03/5533245284609_aa9204ae94f620a610a2_192.jpg"
     },
     {
@@ -8502,5 +8532,5 @@
       "avatar": "https://avatars.slack-edge.com/2022-08-02/3880095612405_a0dd257c4410f3018659_192.png"
     }
   ],
-  "fetched_at": "2026-03-06T09:43:31.140057+00:00"
+  "fetched_at": "2026-03-13T09:43:10.318824+00:00"
 }
