@@ -1,6 +1,6 @@
 {
-  "total": 1520,
-  "total_with_aliases": 1521,
+  "total": 1531,
+  "total_with_aliases": 1532,
   "total_aliases": 1,
   "total_creators": 103,
   "leaderboard": [
@@ -22,6 +22,11 @@
           "name": "3_lions",
           "created": 1719390136,
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/3_lions/3cf4efa477e699a4.png"
+        },
+        {
+          "name": "absolute_cringe",
+          "created": 1773826696,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/absolute_cringe/af073a9c5d57afa2.jpg"
         },
         {
           "name": "acf_fiorentina",
@@ -142,6 +147,11 @@
           "name": "amazon",
           "created": 1743849519,
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/amazon/55fe70a66d6afdee.png"
+        },
+        {
+          "name": "amsterdam",
+          "created": 1773826791,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/amsterdam/e3df596591bf0e45.png"
         },
         {
           "name": "android",
@@ -624,9 +634,24 @@
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/classic_facepalm/02d988ce381e49a2.png"
         },
         {
+          "name": "claude",
+          "created": 1773654938,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/claude/6cf675e17bdb27c9.gif"
+        },
+        {
           "name": "claude-code",
           "created": 1772010513,
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/claude-code/ad01237069d73fa8.png"
+        },
+        {
+          "name": "claude-everywhere",
+          "created": 1773654976,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/claude-everywhere/e748b6e8bda0ea2a.gif"
+        },
+        {
+          "name": "claude-polish",
+          "created": 1773826705,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/claude-polish/f3f806e1243c4825.gif"
         },
         {
           "name": "click-remote",
@@ -1799,6 +1824,11 @@
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/jay_hughes/daad6e9d296866a9.png"
         },
         {
+          "name": "jestermaxxing-bobby",
+          "created": 1773766739,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/jestermaxxing-bobby/8de7fc09d233f032.png"
+        },
+        {
           "name": "jimwhite",
           "created": 1761846501,
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/jimwhite/56b55c8e7c3a831f.gif"
@@ -2579,6 +2609,11 @@
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/product_manager_priten/caf65eb835b6beda.png"
         },
         {
+          "name": "prompt-jockey",
+          "created": 1773826714,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/prompt-jockey/e0f8746697665f25.gif"
+        },
+        {
           "name": "psv_eindhoven",
           "created": 1747138678,
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/psv_eindhoven/28423d78352441ec.png"
@@ -2687,6 +2722,11 @@
           "name": "robber",
           "created": 1746632731,
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/robber/5823d94e83b70c5a.png"
+        },
+        {
+          "name": "robocop",
+          "created": 1773655022,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/robocop/8473c8a8c29e0651.png"
         },
         {
           "name": "rocco_player",
@@ -3344,6 +3384,11 @@
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/vfl_wolfsburg/c9e05e9218387b9e.png"
         },
         {
+          "name": "vietnam-harry",
+          "created": 1773768333,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/vietnam-harry/2af1c7597445fcc2.png"
+        },
+        {
           "name": "vigilante_alex",
           "created": 1761643286,
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/vigilante_alex/38f6b50285757b4a.png"
@@ -3530,7 +3575,7 @@
         }
       ],
       "rank": 1,
-      "count": 704,
+      "count": 713,
       "avatar": "https://avatars.slack-edge.com/2024-06-05/7226515885298_7789eb25631c47a09e3b_192.jpg"
     },
     {
@@ -6224,6 +6269,80 @@
       "avatar": "https://avatars.slack-edge.com/2023-05-02/5222262790192_56ff15c8c0903e881cee_192.jpg"
     },
     {
+      "user_id": "U065UAMDGM9",
+      "display_name": "Maryna Prokopenko",
+      "emoji": [
+        {
+          "name": "3116_dead",
+          "created": 1709653648,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/3116_dead/dafc32bcc7d206b6.png"
+        },
+        {
+          "name": "cool_m",
+          "created": 1709219845,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/cool_m/200c3e3d248f6f35.png"
+        },
+        {
+          "name": "dontpushthehorses",
+          "created": 1772650354,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/dontpushthehorses/75be436072877942.png"
+        },
+        {
+          "name": "farewell",
+          "created": 1709219264,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/farewell/9da552251ed2ff06.png"
+        },
+        {
+          "name": "galatasaray_sports_club_logo",
+          "created": 1709296226,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/galatasaray_sports_club_logo/a206035ceb82c249.png"
+        },
+        {
+          "name": "holy_water",
+          "created": 1773753087,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/holy_water/6cd6da6968838440.png"
+        },
+        {
+          "name": "mclaren",
+          "created": 1765187751,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/mclaren/c6d66135ef56b9e9.png"
+        },
+        {
+          "name": "mercuryretrograde",
+          "created": 1744123623,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/mercuryretrograde/e68abd3cce981e58.png"
+        },
+        {
+          "name": "nogood",
+          "created": 1743522879,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/nogood/477deea03f5376a5.png"
+        },
+        {
+          "name": "partoftheteam",
+          "created": 1754059535,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/partoftheteam/9894125446f4386f.png"
+        },
+        {
+          "name": "please",
+          "created": 1720706483,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/please/5fdb64de596b3e78.png"
+        },
+        {
+          "name": "scrooge",
+          "created": 1743668339,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/scrooge/4369489dea6e6062.png"
+        },
+        {
+          "name": "wcl",
+          "created": 1711629632,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/wcl/a89ae14e1b968918.jpg"
+        }
+      ],
+      "rank": 17,
+      "count": 13,
+      "avatar": "https://avatars.slack-edge.com/2024-04-23/7019022866145_ec5393e2c1df36d7bd82_192.jpg"
+    },
+    {
       "user_id": "U042H4XV6TY",
       "display_name": "Luke Taylor",
       "emoji": [
@@ -6293,78 +6412,9 @@
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/wealdstone-raiderjpggallery/72d201fa10493491.jpg"
         }
       ],
-      "rank": 17,
+      "rank": 18,
       "count": 13,
       "avatar": "https://avatars.slack-edge.com/2025-04-04/8704553537797_000f51b6703e6bba88f5_192.jpg"
-    },
-    {
-      "user_id": "U065UAMDGM9",
-      "display_name": "Maryna Prokopenko",
-      "emoji": [
-        {
-          "name": "3116_dead",
-          "created": 1709653648,
-          "url": "https://emoji.slack-edge.com/TG47D1M7Y/3116_dead/dafc32bcc7d206b6.png"
-        },
-        {
-          "name": "cool_m",
-          "created": 1709219845,
-          "url": "https://emoji.slack-edge.com/TG47D1M7Y/cool_m/200c3e3d248f6f35.png"
-        },
-        {
-          "name": "dontpushthehorses",
-          "created": 1772650354,
-          "url": "https://emoji.slack-edge.com/TG47D1M7Y/dontpushthehorses/75be436072877942.png"
-        },
-        {
-          "name": "farewell",
-          "created": 1709219264,
-          "url": "https://emoji.slack-edge.com/TG47D1M7Y/farewell/9da552251ed2ff06.png"
-        },
-        {
-          "name": "galatasaray_sports_club_logo",
-          "created": 1709296226,
-          "url": "https://emoji.slack-edge.com/TG47D1M7Y/galatasaray_sports_club_logo/a206035ceb82c249.png"
-        },
-        {
-          "name": "mclaren",
-          "created": 1765187751,
-          "url": "https://emoji.slack-edge.com/TG47D1M7Y/mclaren/c6d66135ef56b9e9.png"
-        },
-        {
-          "name": "mercuryretrograde",
-          "created": 1744123623,
-          "url": "https://emoji.slack-edge.com/TG47D1M7Y/mercuryretrograde/e68abd3cce981e58.png"
-        },
-        {
-          "name": "nogood",
-          "created": 1743522879,
-          "url": "https://emoji.slack-edge.com/TG47D1M7Y/nogood/477deea03f5376a5.png"
-        },
-        {
-          "name": "partoftheteam",
-          "created": 1754059535,
-          "url": "https://emoji.slack-edge.com/TG47D1M7Y/partoftheteam/9894125446f4386f.png"
-        },
-        {
-          "name": "please",
-          "created": 1720706483,
-          "url": "https://emoji.slack-edge.com/TG47D1M7Y/please/5fdb64de596b3e78.png"
-        },
-        {
-          "name": "scrooge",
-          "created": 1743668339,
-          "url": "https://emoji.slack-edge.com/TG47D1M7Y/scrooge/4369489dea6e6062.png"
-        },
-        {
-          "name": "wcl",
-          "created": 1711629632,
-          "url": "https://emoji.slack-edge.com/TG47D1M7Y/wcl/a89ae14e1b968918.jpg"
-        }
-      ],
-      "rank": 18,
-      "count": 12,
-      "avatar": "https://avatars.slack-edge.com/2024-04-23/7019022866145_ec5393e2c1df36d7bd82_192.jpg"
     },
     {
       "user_id": "UGAUF4TJ9",
@@ -7155,6 +7205,40 @@
       "avatar": "https://avatars.slack-edge.com/2022-09-29/4152173770978_f88bb94e0eeff65d9479_192.jpg"
     },
     {
+      "user_id": "U05K2EL9YQ7",
+      "display_name": "Lo\u00efc Alcaraz",
+      "emoji": [
+        {
+          "name": "atletico",
+          "created": 1730733808,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/atletico/15d6cf16959c0dc7.png"
+        },
+        {
+          "name": "flag_of_corsicasvg",
+          "created": 1739530318,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/flag_of_corsicasvg/d029e50361ab2852.png"
+        },
+        {
+          "name": "montpellier_h\u00e9rault_sport_club_logo_2000svg",
+          "created": 1690882806,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/montpellier_h%25C3%25A9rault_sport_club_logo_2000svg/65bfc473577d3818.png"
+        },
+        {
+          "name": "mvp",
+          "created": 1773740397,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/mvp/79575d5d9fdaf769.png"
+        },
+        {
+          "name": "sc_bastia_logo_2024svg",
+          "created": 1739535208,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/sc_bastia_logo_2024svg/996f0ff1cbe0c317.png"
+        }
+      ],
+      "rank": 36,
+      "count": 5,
+      "avatar": "https://avatars.slack-edge.com/2023-07-31/5677200191505_0e6c379b26ceb1b9eb10_192.jpg"
+    },
+    {
       "user_id": "U04Q9RYEW7P",
       "display_name": "Ricky Ronchi",
       "emoji": [
@@ -7184,7 +7268,7 @@
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/saul/052d182d8b791a5d.jpg"
         }
       ],
-      "rank": 36,
+      "rank": 37,
       "count": 5,
       "avatar": "https://avatars.slack-edge.com/2026-03-03/10622829381428_8ef56abcb3fb20921635_192.jpg"
     },
@@ -7218,7 +7302,7 @@
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/mclovin/5003bef42ba45fea.jpg"
         }
       ],
-      "rank": 37,
+      "rank": 38,
       "count": 5,
       "avatar": "https://avatars.slack-edge.com/2026-01-27/10381340530806_05e9c618363f9b4cc863_192.png"
     },
@@ -7252,7 +7336,7 @@
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/tinderrr/281b8be6ebbcb2cb.jpg"
         }
       ],
-      "rank": 38,
+      "rank": 39,
       "count": 5,
       "avatar": "https://secure.gravatar.com/avatar/1832ed59472de620f1efdee7e3623e76.jpg?s=192&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0026-192.png"
     },
@@ -7286,7 +7370,7 @@
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/win/38cce511d3d12bec.jpg"
         }
       ],
-      "rank": 39,
+      "rank": 40,
       "count": 5,
       "avatar": "https://avatars.slack-edge.com/2024-12-12/8179831005649_33b85aae8e7fce07dc6c_192.jpg"
     },
@@ -7320,7 +7404,7 @@
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/whitehawk_fc/54c1dcc062079ba2.png"
         }
       ],
-      "rank": 40,
+      "rank": 41,
       "count": 5,
       "avatar": "https://avatars.slack-edge.com/2024-02-06/6578834621991_480bd80a1e05a21a3054_192.png"
     },
@@ -7349,38 +7433,9 @@
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/corgi/05871a98e4c81323.gif"
         }
       ],
-      "rank": 41,
-      "count": 4,
-      "avatar": "https://avatars.slack-edge.com/2023-12-27/6383164306007_c411e1bdaaf25cf93a89_192.jpg"
-    },
-    {
-      "user_id": "U05K2EL9YQ7",
-      "display_name": "Lo\u00efc Alcaraz",
-      "emoji": [
-        {
-          "name": "atletico",
-          "created": 1730733808,
-          "url": "https://emoji.slack-edge.com/TG47D1M7Y/atletico/15d6cf16959c0dc7.png"
-        },
-        {
-          "name": "flag_of_corsicasvg",
-          "created": 1739530318,
-          "url": "https://emoji.slack-edge.com/TG47D1M7Y/flag_of_corsicasvg/d029e50361ab2852.png"
-        },
-        {
-          "name": "montpellier_h\u00e9rault_sport_club_logo_2000svg",
-          "created": 1690882806,
-          "url": "https://emoji.slack-edge.com/TG47D1M7Y/montpellier_h%25C3%25A9rault_sport_club_logo_2000svg/65bfc473577d3818.png"
-        },
-        {
-          "name": "sc_bastia_logo_2024svg",
-          "created": 1739535208,
-          "url": "https://emoji.slack-edge.com/TG47D1M7Y/sc_bastia_logo_2024svg/996f0ff1cbe0c317.png"
-        }
-      ],
       "rank": 42,
       "count": 4,
-      "avatar": "https://avatars.slack-edge.com/2023-07-31/5677200191505_0e6c379b26ceb1b9eb10_192.jpg"
+      "avatar": "https://avatars.slack-edge.com/2023-12-27/6383164306007_c411e1bdaaf25cf93a89_192.jpg"
     },
     {
       "user_id": "U08SM0JHLQ7",
@@ -8532,5 +8587,5 @@
       "avatar": "https://avatars.slack-edge.com/2022-08-02/3880095612405_a0dd257c4410f3018659_192.png"
     }
   ],
-  "fetched_at": "2026-03-13T09:43:10.318824+00:00"
+  "fetched_at": "2026-03-20T09:48:17.941930+00:00"
 }
