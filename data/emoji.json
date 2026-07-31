@@ -1,6 +1,6 @@
 {
-  "total": 1720,
-  "total_with_aliases": 1721,
+  "total": 1730,
+  "total_with_aliases": 1731,
   "total_aliases": 1,
   "total_creators": 106,
   "leaderboard": [
@@ -199,6 +199,11 @@
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/android-dance/3c86940d241b7462.gif"
         },
         {
+          "name": "andy_burnham",
+          "created": 1785349759,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/andy_burnham/ae60e98398810547.png"
+        },
+        {
           "name": "angrypanda",
           "created": 1747126590,
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/angrypanda/d3a48cc0a57f8723.gif"
@@ -374,6 +379,11 @@
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/basil_fawlty_towers/e067798640fa9938.png"
         },
         {
+          "name": "batman",
+          "created": 1785349808,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/batman/20c4e85083136209.png"
+        },
+        {
           "name": "bbc",
           "created": 1780491114,
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/bbc/a4954cc60ca7126a.gif"
@@ -544,6 +554,11 @@
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/boring/6afee9247613972f.gif"
         },
         {
+          "name": "boris-thumbs-up",
+          "created": 1785349676,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/boris-thumbs-up/17c18fdcee3ee321.gif"
+        },
+        {
           "name": "boris_johnson",
           "created": 1747036746,
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/boris_johnson/f62c5a3e4db78a4a.png"
@@ -617,6 +632,11 @@
           "name": "bruce-lee-bow",
           "created": 1759331074,
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/bruce-lee-bow/187900b5f170f95c.gif"
+        },
+        {
+          "name": "bt",
+          "created": 1785327528,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/bt/6f6aed9abe81ffd3.png"
         },
         {
           "name": "builder_jay",
@@ -1684,6 +1704,11 @@
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/ghostly_jay/4563c1e05c559494.png"
         },
         {
+          "name": "gigachad",
+          "created": 1785349653,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/gigachad/81bfe9435fc953a0.png"
+        },
+        {
           "name": "gimli",
           "created": 1729590234,
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/gimli/9324c2461481ccb7.png"
@@ -2057,6 +2082,11 @@
           "name": "ihor",
           "created": 1737711080,
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/ihor/b8c57b09167fdfd6.png"
+        },
+        {
+          "name": "im-free-mr-humphries",
+          "created": 1785337005,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/im-free-mr-humphries/7e77c45b76d98595.png"
         },
         {
           "name": "industrialist_jay",
@@ -2604,6 +2634,11 @@
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/mo_salah/519b3aceb739567a.png"
         },
         {
+          "name": "mr_churn",
+          "created": 1784897522,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/mr_churn/46e3d4ee2f3ef86c.png"
+        },
+        {
           "name": "mr_softytop_jay",
           "created": 1783069248,
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/mr_softytop_jay/91f0a12a943b461e.png"
@@ -2907,6 +2942,11 @@
           "name": "oof_ted_lasso",
           "created": 1768406162,
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/oof_ted_lasso/c6d9ed9af9f4aa70.gif"
+        },
+        {
+          "name": "ooh-matron",
+          "created": 1785349842,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/ooh-matron/59d80c6bc13df26d.gif"
         },
         {
           "name": "oreo",
@@ -3769,6 +3809,11 @@
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/tap/abc87b1c8f81e359.gif"
         },
         {
+          "name": "taskmaster-trophy",
+          "created": 1785350039,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/taskmaster-trophy/ace66de748fb50d7.png"
+        },
+        {
           "name": "tech-debt",
           "created": 1758097626,
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/tech-debt/0bcb44caa6219c48.png"
@@ -4084,6 +4129,11 @@
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/villarreal_cf/4b27eac86a4f89a1.png"
         },
         {
+          "name": "virgin_media",
+          "created": 1785328758,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/virgin_media/795a3240fceaec01.jpg"
+        },
+        {
           "name": "wadi_degla_sc",
           "created": 1749459571,
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/wadi_degla_sc/dde612894c044525.png"
@@ -4295,7 +4345,7 @@
         }
       ],
       "rank": 1,
-      "count": 857,
+      "count": 867,
       "avatar": "https://avatars.slack-edge.com/2024-06-05/7226515885298_7789eb25631c47a09e3b_192.jpg"
     },
     {
@@ -7218,7 +7268,7 @@
     },
     {
       "user_id": "U056HJ5SWRW",
-      "display_name": "Kobi Tang-Wright",
+      "display_name": "Kobi",
       "emoji": [
         {
           "name": "captain-paul",
@@ -9559,5 +9609,5 @@
       "avatar": "https://avatars.slack-edge.com/2022-08-02/3880095612405_a0dd257c4410f3018659_192.png"
     }
   ],
-  "fetched_at": "2026-07-24T11:04:16.758996+00:00"
+  "fetched_at": "2026-07-31T07:48:12.171406+00:00"
 }
