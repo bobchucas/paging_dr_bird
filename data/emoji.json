@@ -1,6 +1,6 @@
 {
-  "total": 1730,
-  "total_with_aliases": 1731,
+  "total": 1731,
+  "total_with_aliases": 1732,
   "total_aliases": 1,
   "total_creators": 106,
   "leaderboard": [
@@ -632,6 +632,11 @@
           "name": "bruce-lee-bow",
           "created": 1759331074,
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/bruce-lee-bow/187900b5f170f95c.gif"
+        },
+        {
+          "name": "bruce-typing",
+          "created": 1785487486,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/bruce-typing/4bd0b02288abd98c.gif"
         },
         {
           "name": "bt",
@@ -4345,7 +4350,7 @@
         }
       ],
       "rank": 1,
-      "count": 867,
+      "count": 868,
       "avatar": "https://avatars.slack-edge.com/2024-06-05/7226515885298_7789eb25631c47a09e3b_192.jpg"
     },
     {
@@ -9609,5 +9614,5 @@
       "avatar": "https://avatars.slack-edge.com/2022-08-02/3880095612405_a0dd257c4410f3018659_192.png"
     }
   ],
-  "fetched_at": "2026-07-31T07:48:12.171406+00:00"
+  "fetched_at": "2026-07-31T11:30:22.863102+00:00"
 }
