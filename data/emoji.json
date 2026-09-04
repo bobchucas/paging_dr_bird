@@ -1,6 +1,6 @@
 {
-  "total": 1830,
-  "total_with_aliases": 1831,
+  "total": 1834,
+  "total_with_aliases": 1835,
   "total_aliases": 1,
   "total_creators": 106,
   "leaderboard": [
@@ -1212,6 +1212,11 @@
           "name": "designing_ain't_easy",
           "created": 1753632773,
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/designing_ain%2527t_easy/97d4e2d1c84317eb.gif"
+        },
+        {
+          "name": "design_fight",
+          "created": 1788502173,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/design_fight/47ace48dcdb6d8b2.png"
         },
         {
           "name": "design_police",
@@ -3324,6 +3329,11 @@
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/pina_colada/7410307d44cd552e.png"
         },
         {
+          "name": "pineapple_jay",
+          "created": 1788502116,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/pineapple_jay/89aa191738fb03c8.png"
+        },
+        {
           "name": "pitea_if",
           "created": 1781085512,
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/pitea_if/7953251af5f7d0ed.png"
@@ -3504,6 +3514,11 @@
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/rainbow_yes/546d5b60670d08fe.gif"
         },
         {
+          "name": "raining_deals_harry",
+          "created": 1788426451,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/raining_deals_harry/2980b716e034a4ce.png"
+        },
+        {
           "name": "raise_a_ticket",
           "created": 1741017594,
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/raise_a_ticket/409f1f49618c608b.png"
@@ -3582,6 +3597,11 @@
           "name": "red_power_ranger_harry",
           "created": 1781515121,
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/red_power_ranger_harry/c59d78f1f591fa62.png"
+        },
+        {
+          "name": "remington-steele",
+          "created": 1788004011,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/remington-steele/d179d8f29ca8cfb1.png"
         },
         {
           "name": "robber",
@@ -4730,7 +4750,7 @@
         }
       ],
       "rank": 1,
-      "count": 944,
+      "count": 948,
       "avatar": "https://avatars.slack-edge.com/2024-06-05/7226515885298_7789eb25631c47a09e3b_192.jpg"
     },
     {
@@ -10109,5 +10129,5 @@
       "avatar": "https://avatars.slack-edge.com/2022-08-02/3880095612405_a0dd257c4410f3018659_192.png"
     }
   ],
-  "fetched_at": "2026-08-28T20:45:18.815700+00:00"
+  "fetched_at": "2026-09-04T13:16:01.046069+00:00"
 }
