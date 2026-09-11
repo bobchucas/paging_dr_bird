@@ -1,6 +1,6 @@
 {
-  "total": 1834,
-  "total_with_aliases": 1835,
+  "total": 1838,
+  "total_with_aliases": 1839,
   "total_aliases": 1,
   "total_creators": 106,
   "leaderboard": [
@@ -1082,6 +1082,11 @@
           "name": "cowboy-boot",
           "created": 1770235968,
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/cowboy-boot/2ea68432de71ff65.gif"
+        },
+        {
+          "name": "crane_opperator_steven",
+          "created": 1788527929,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/crane_opperator_steven/048b4afb68e73d0d.png"
         },
         {
           "name": "crazy-pills",
@@ -4344,6 +4349,11 @@
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/trabzonspor/9c97812a806ab647.png"
         },
         {
+          "name": "train_driver_steven",
+          "created": 1788528094,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/train_driver_steven/2810867c1d790f7e.png"
+        },
+        {
           "name": "train_jay",
           "created": 1747138593,
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/train_jay/057b0871151f228a.png"
@@ -4750,7 +4760,7 @@
         }
       ],
       "rank": 1,
-      "count": 948,
+      "count": 950,
       "avatar": "https://avatars.slack-edge.com/2024-06-05/7226515885298_7789eb25631c47a09e3b_192.jpg"
     },
     {
@@ -7396,6 +7406,11 @@
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/please/5fdb64de596b3e78.png"
         },
         {
+          "name": "product-team",
+          "created": 1788768546,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/product-team/82e883900f16f58b.png"
+        },
+        {
           "name": "scrooge",
           "created": 1743668339,
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/scrooge/4369489dea6e6062.png"
@@ -7412,8 +7427,97 @@
         }
       ],
       "rank": 14,
-      "count": 15,
+      "count": 16,
       "avatar": "https://avatars.slack-edge.com/2024-04-23/7019022866145_ec5393e2c1df36d7bd82_192.jpg"
+    },
+    {
+      "user_id": "U05RS34T65Q",
+      "display_name": "Bobby",
+      "emoji": [
+        {
+          "name": "ai-dr",
+          "created": 1771579806,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/ai-dr/c52134abd2657085.png"
+        },
+        {
+          "name": "back-to-the-video",
+          "created": 1760108019,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/back-to-the-video/6dc8bc094d4946a9.gif"
+        },
+        {
+          "name": "banter-machine-scott",
+          "created": 1761910182,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/banter-machine-scott/ea1277284c789655.jpg"
+        },
+        {
+          "name": "bored-scott",
+          "created": 1758033848,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/bored-scott/3aac32f2c9125cb8.png"
+        },
+        {
+          "name": "cartoon-jay",
+          "created": 1760434298,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/cartoon-jay/4571cf1893dbed2e.jpg"
+        },
+        {
+          "name": "cold_jay",
+          "created": 1761122372,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/cold_jay/67f8090afd265f91.png"
+        },
+        {
+          "name": "double-jack",
+          "created": 1756819234,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/double-jack/55efcdfc0b1ca30f.png"
+        },
+        {
+          "name": "jay-bravo",
+          "created": 1771604611,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/jay-bravo/fdafd51d372a7196.jpg"
+        },
+        {
+          "name": "johnny-bravo",
+          "created": 1771604499,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/johnny-bravo/ea93f7092b004289.png"
+        },
+        {
+          "name": "kind_regards",
+          "created": 1752595286,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/kind_regards/b3ed6360790f0b08.jpg"
+        },
+        {
+          "name": "meat-proxy",
+          "created": 1788533728,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/meat-proxy/2d6fcdd5d11d2eef.jpg"
+        },
+        {
+          "name": "mitch-tache",
+          "created": 1764323749,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/mitch-tache/d9d740f163ee80d4.png"
+        },
+        {
+          "name": "quick-recap",
+          "created": 1760108228,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/quick-recap/58d824c70c777ae8.gif"
+        },
+        {
+          "name": "twins",
+          "created": 1777640510,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/twins/3e070fa688367716.png"
+        },
+        {
+          "name": "unkempt-jay",
+          "created": 1772185673,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/unkempt-jay/9189f651d4bf6131.png"
+        },
+        {
+          "name": "yawning_jay",
+          "created": 1764327342,
+          "url": "https://emoji.slack-edge.com/TG47D1M7Y/yawning_jay/bb2ef254358ce89b.png"
+        }
+      ],
+      "rank": 15,
+      "count": 16,
+      "avatar": "https://avatars.slack-edge.com/2024-03-19/6825264220019_dcec52c024413907ab09_192.jpg"
     },
     {
       "user_id": "U042H4XV6TY",
@@ -7495,93 +7599,9 @@
           "url": "https://emoji.slack-edge.com/TG47D1M7Y/wealdstone-raiderjpggallery/72d201fa10493491.jpg"
         }
       ],
-      "rank": 15,
-      "count": 15,
-      "avatar": "https://avatars.slack-edge.com/2025-04-04/8704553537797_000f51b6703e6bba88f5_192.jpg"
-    },
-    {
-      "user_id": "U05RS34T65Q",
-      "display_name": "Bobby",
-      "emoji": [
-        {
-          "name": "ai-dr",
-          "created": 1771579806,
-          "url": "https://emoji.slack-edge.com/TG47D1M7Y/ai-dr/c52134abd2657085.png"
-        },
-        {
-          "name": "back-to-the-video",
-          "created": 1760108019,
-          "url": "https://emoji.slack-edge.com/TG47D1M7Y/back-to-the-video/6dc8bc094d4946a9.gif"
-        },
-        {
-          "name": "banter-machine-scott",
-          "created": 1761910182,
-          "url": "https://emoji.slack-edge.com/TG47D1M7Y/banter-machine-scott/ea1277284c789655.jpg"
-        },
-        {
-          "name": "bored-scott",
-          "created": 1758033848,
-          "url": "https://emoji.slack-edge.com/TG47D1M7Y/bored-scott/3aac32f2c9125cb8.png"
-        },
-        {
-          "name": "cartoon-jay",
-          "created": 1760434298,
-          "url": "https://emoji.slack-edge.com/TG47D1M7Y/cartoon-jay/4571cf1893dbed2e.jpg"
-        },
-        {
-          "name": "cold_jay",
-          "created": 1761122372,
-          "url": "https://emoji.slack-edge.com/TG47D1M7Y/cold_jay/67f8090afd265f91.png"
-        },
-        {
-          "name": "double-jack",
-          "created": 1756819234,
-          "url": "https://emoji.slack-edge.com/TG47D1M7Y/double-jack/55efcdfc0b1ca30f.png"
-        },
-        {
-          "name": "jay-bravo",
-          "created": 1771604611,
-          "url": "https://emoji.slack-edge.com/TG47D1M7Y/jay-bravo/fdafd51d372a7196.jpg"
-        },
-        {
-          "name": "johnny-bravo",
-          "created": 1771604499,
-          "url": "https://emoji.slack-edge.com/TG47D1M7Y/johnny-bravo/ea93f7092b004289.png"
-        },
-        {
-          "name": "kind_regards",
-          "created": 1752595286,
-          "url": "https://emoji.slack-edge.com/TG47D1M7Y/kind_regards/b3ed6360790f0b08.jpg"
-        },
-        {
-          "name": "mitch-tache",
-          "created": 1764323749,
-          "url": "https://emoji.slack-edge.com/TG47D1M7Y/mitch-tache/d9d740f163ee80d4.png"
-        },
-        {
-          "name": "quick-recap",
-          "created": 1760108228,
-          "url": "https://emoji.slack-edge.com/TG47D1M7Y/quick-recap/58d824c70c777ae8.gif"
-        },
-        {
-          "name": "twins",
-          "created": 1777640510,
-          "url": "https://emoji.slack-edge.com/TG47D1M7Y/twins/3e070fa688367716.png"
-        },
-        {
-          "name": "unkempt-jay",
-          "created": 1772185673,
-          "url": "https://emoji.slack-edge.com/TG47D1M7Y/unkempt-jay/9189f651d4bf6131.png"
-        },
-        {
-          "name": "yawning_jay",
-          "created": 1764327342,
-          "url": "https://emoji.slack-edge.com/TG47D1M7Y/yawning_jay/bb2ef254358ce89b.png"
-        }
-      ],
       "rank": 16,
       "count": 15,
-      "avatar": "https://avatars.slack-edge.com/2024-03-19/6825264220019_dcec52c024413907ab09_192.jpg"
+      "avatar": "https://avatars.slack-edge.com/2025-04-04/8704553537797_000f51b6703e6bba88f5_192.jpg"
     },
     {
       "user_id": "USX96CBPZ",
@@ -10129,5 +10149,5 @@
       "avatar": "https://avatars.slack-edge.com/2022-08-02/3880095612405_a0dd257c4410f3018659_192.png"
     }
   ],
-  "fetched_at": "2026-09-04T13:16:01.046069+00:00"
+  "fetched_at": "2026-09-11T13:22:12.216735+00:00"
 }
